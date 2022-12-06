@@ -1,0 +1,10 @@
+1. Create and start github
+    a.Create github repository.
+    b. Clone it in your machine.
+    c. Follow the instruction written while creating the repository.
+
+2. Create and start virtual environment.
+    a.Create a virtual environment # conda create -n <envname> python=3.10.
+    b. Activate the environment by executing # conda activate <envname>
+
+3. Start your project development.
