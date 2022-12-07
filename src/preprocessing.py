@@ -1,6 +1,7 @@
 from sklearn.preprocessing import LabelEncoder
 from load import load_data, train_path, test_path
 import pandas as pd
+from featureengineering import time_based_feature_Engineering
 
 def convert_duration_to_minutes(time):
     '''
@@ -66,6 +67,7 @@ def sanity_check(df, train=True):
     
     return df
 
+
 def handle_missing_value(df, train=True):
     """
     This function helps to handle missing value.
@@ -79,6 +81,7 @@ def handle_missing_value(df, train=True):
     """
     df.dropna(inplace=True)
     return df
+
 
 def frequency_encoder(df, col):
     """
@@ -165,13 +168,20 @@ def handle_categorical_values(df, target):
 
 def airline_handle_categorical_data(df, target):
     df['Destination'] = df['Destination'].replace({'New Delhi':'Delhi'})
-    df, encoded_dict = handle_categorical_values(df,target)
+    df, encoded_dict = handle_categorical_values(df, target)
     categorical_cols = df.select_dtypes(object).columns
     df.drop(columns=categorical_cols,inplace=True)
     return df, encoded_dict
 
+
 if __name__ == "__main__":
     # test your module here
+    target = 'Price'
     df = load_data(train_path)
     df = sanity_check(df, train=True)
+    handle_missing_value(df)
+    df, encoded_dict = airline_handle_categorical_data(df, target)
+    final_df = time_based_feature_Engineering(df)
     print(df.info())
+    print(encoded_dict)
+    print(final_df.info())
