@@ -9,7 +9,7 @@ from sklearn.preprocessing import PolynomialFeatures
 from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import PowerTransformer
 from sklearn.preprocessing import RobustScaler
-from sklearn.preprocessing import SplineTransformer
+#from sklearn.preprocessing import SplineTransformer
 
 from sklearn.model_selection import RandomizedSearchCV
 from sklearn.model_selection import GridSearchCV
