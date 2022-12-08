@@ -35,10 +35,13 @@ def encode_predict_input(df, encoded_dict, error_handle=True):
             df.loc[index,'Mean_encoded_Route'] = -1
             df.loc[index,'Label_encoded_Route'] = -1
 
-        df['Freq_encoded_Route'] =  df['Freq_encoded_Route'].astype('float')
-        df['Mean_encoded_Route'] =  df['Mean_encoded_Route'].astype('float')
-        df['Label_encoded_Route'] =  df['Label_encoded_Route'].astype('float')
+        df['Freq_encoded_Route'] =  df['Freq_encoded_Route'].strip().astype('float')
+        df['Mean_encoded_Route'] =  df['Mean_encoded_Route'].strip().astype('float')
+        df['Label_encoded_Route'] =  df['Label_encoded_Route'].strip().astype('float')
+
+
     return df
+
 
 
 def predict_price(df, encoded_path, model_path, error_handle=True):
