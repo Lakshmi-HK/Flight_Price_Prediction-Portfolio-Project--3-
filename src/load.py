@@ -2,7 +2,8 @@ import pandas as pd
 import numpy as np
 
 def load_data(path):
-    df = pd.read_excel(path, encoding = "utf-8")
+    df = pd.read_excel(path)
+    #encoding = 'sys.getfilesystemcoding()'
     return df
 
 train_path = "../data/Train.xlsx"

@@ -4,7 +4,8 @@ list_A = ['Total_Stops', 'Duration_min', 'Freq_encoded_Airline',
        'Label_encoded_Source', 'Label_encoded_Destination',
        'Label_encoded_Route', 'dep_hr', 'arr_hr', 'dep_month',
        'dep_day_of_month', 'dep_day_of_week', 'arr_day_of_week', 'dep_weekday',
-       'arr_weekday', 'arrival_timeOfDay_encoded'
+       'arr_weekday'
+          #'arrival_timeOfDay_encoded'
     ] 
 
 list_B = ['Total_Stops', 'Duration_min', 'dep_hr', 'arr_hr', 'dep_month',

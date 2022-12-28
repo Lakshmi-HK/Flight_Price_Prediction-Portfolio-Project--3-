@@ -30,7 +30,7 @@ def encode_predict_input(df, encoded_dict, error_handle=True):
     # df[df['Freq_encoded_Route'].str.contains('→',na=False)].index.to_list() --> [6 , 72, 484 , 3838, 1980]
     
     if error_handle:
-        for index in [6 , 72, 484 , 3838, 1980]:
+        for index in [6 , 72, 484 ,966 ,1838 , 1980]:
             df.loc[index,'Freq_encoded_Route'] = -1
             df.loc[index,'Mean_encoded_Route'] = -1
             df.loc[index,'Label_encoded_Route'] = -1
@@ -38,7 +38,9 @@ def encode_predict_input(df, encoded_dict, error_handle=True):
         df['Freq_encoded_Route'] =  df['Freq_encoded_Route'].astype('float')
         df['Mean_encoded_Route'] =  df['Mean_encoded_Route'].astype('float')
         df['Label_encoded_Route'] =  df['Label_encoded_Route'].astype('float')
-
+        #df['Freq_encoded_Route'] = df['Freq_encoded_Route'].apply(lambda x : float(x))
+        #df['Mean_encoded_Route'] = df['Mean_encoded_Route'].apply(lambda x : float(x))
+        #df['Label_encoded_Route'] = df['Label_encoded_Route'].apply(lambda x : float(x))
 
     return df
 

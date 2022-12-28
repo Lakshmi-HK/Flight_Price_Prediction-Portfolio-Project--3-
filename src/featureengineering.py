@@ -58,16 +58,16 @@ def time_based_feature_Engineering(df):
     df['arr_weekday'] = np.where(df["arr_day_of_week"].isin([5,6]),0,1)
 
 
-    #df['departure_timeOfDay'] = df['dep_hr'].apply(lambda x: time_of_day(x)[0])
-    #df['arrival_timeOfDay'] = df['arr_hr'].apply(lambda x: time_of_day(x)[0])
-    #df['departure_timeOfDay_encoded'] = df['dep_hr'].apply(lambda x: time_of_day(x)[1])
-    #df['arrival_timeOfDay_encoded'] = df['arr_hr'].apply(lambda x: time_of_day(x)[1])
+    df['departure_timeOfDay'] = df['dep_hr'].apply(lambda x: time_of_day(x)[0])
+    df['arrival_timeOfDay'] = df['arr_hr'].apply(lambda x: time_of_day(x)[0])
+    df['departure_timeOfDay_encoded'] = df['dep_hr'].apply(lambda x: time_of_day(x)[1])
+    df['arrival_timeOfDay_encoded'] = df['arr_hr'].apply(lambda x: time_of_day(x)[1])
 
-   # one_hot_cols = ['departure_timeOfDay','arrival_timeOfDay']
-   # df_oneHotEncoded = pd.get_dummies(df[one_hot_cols])
-    #new_df = pd.concat([df,df_oneHotEncoded],axis=1)
+    one_hot_cols = ['departure_timeOfDay','arrival_timeOfDay']
+    df_oneHotEncoded = pd.get_dummies(df[one_hot_cols])
+    new_df = pd.concat([df,df_oneHotEncoded],axis=1)
     
-    new_df = df
+    #new_df = df
     drop_cols = [
                 'DepartureDateTime',
                 'Duration_timedelta',

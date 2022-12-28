@@ -162,13 +162,14 @@ def handle_categorical_values(df, target):
     encoded_dict["Frequency"] = frequency_encoded_dict
     encoded_dict["Mean"] = mean_encoded_dict
     encoded_dict["Label"] = label_encoded_dict
-
+    #print(encoded_dict)
     return df, encoded_dict
 
 
 def airline_handle_categorical_data(df, target):
     df['Destination'] = df['Destination'].replace({'New Delhi':'Delhi'})
     df, encoded_dict = handle_categorical_values(df, target)
+    #print(encoded_dict)
     categorical_cols = df.select_dtypes(object).columns
     df.drop(columns=categorical_cols,inplace=True)
     return df, encoded_dict
