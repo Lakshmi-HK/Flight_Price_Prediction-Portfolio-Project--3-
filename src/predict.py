@@ -61,16 +61,16 @@ def predict_price(df, encoded_path, model_path, error_handle=True):
     result = loaded_model.predict(test_X)
     return result
 
+if __name__ == "__main__":
+    model_path = '../models/xgboost_demo.pickle'
+    encoded_path = '../models/encoded_dict_demo.pickle'
 
-model_path = '../models/xgboost_demo.pickle'
-encoded_path = '../models/encoded_dict_demo.pickle'
-
-df = load_data(test_path)
-df= df.iloc[:,:]
+    df = load_data(test_path)
+    df= df.iloc[:,:]
 
 
-output = predict_price(df, encoded_path, model_path, error_handle=True)
-print(output)
+    output = predict_price(df, encoded_path, model_path, error_handle=True)
+    print(output)
 
-output_path = "../output/results.pickle"
-save_pickle(output_path, output)
+    output_path = "../output/results.pickle"
+    save_pickle(output_path, output)
