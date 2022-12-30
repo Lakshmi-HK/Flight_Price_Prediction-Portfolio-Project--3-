@@ -108,9 +108,10 @@ def predict():
 
     #return str(prediction[0])
 
-#@app.route('/', methods=['GET', 'POST'])
-#def index():
- #   return render_template('index.html', airlines=airlines, 
+@app.route('/index', methods=['GET', 'POST'])
+def index():
+    return render_template('index.html')
+  # airlines=airlines, 
   #  sources=sources, destinations=destinations,
    # routes=routes , pred=str(9999))
 
